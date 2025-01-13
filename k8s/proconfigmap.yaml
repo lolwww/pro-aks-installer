@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pro-installer
+  namespace: pro-installer
+data:
+  cleanup.sh: |
+    #!/bin/bash
+
+    pro detach --assume-yes
+    rm /var/log/pro-installed.txt
+
+  install.sh: |
+    #!/bin/bash
+
+    # Update and install packages
+    apt-get update
+    apt-get install ubuntu-advantage-tools
+    pro attach %TOKEN%
+    touch /var/log/pro-installed.txt
+
