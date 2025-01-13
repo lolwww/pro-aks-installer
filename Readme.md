@@ -1,9 +1,10 @@
 # Ubuntu PRO on AKS Node Installer
 
 At the moment there is no built-in way to enable Ubuntu Pro on AKS worker nodes by the means of Azure CLI/UI.
-However you can attach to pro subscription using the token from https://ubuntu.com/pro .
-The script is meant to run as a DaemonSet so that new nodes can be subscribed to pro using the token too.
 
+However you can attach to pro subscription using the token from https://ubuntu.com/pro .
+
+The script is meant to run as a DaemonSet so that new nodes can be subscribed to pro using the token too.
 DaemonSet will support both scale-up and scale-down, so new nodes will have pro subscription and will be automatically detached from it on scale-down event.
 This script which is heavily inspired by [Kured](https://github.com/weaveworks/kured) lets you install arbitraty software on AKS worker nodes. 
 
